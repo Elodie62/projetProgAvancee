@@ -34,7 +34,9 @@ import { HttpClientModule } from "@angular/common/http";
     NbButtonModule,
     HttpClientModule,
   ],
+
   providers: [],
   bootstrap: [AppComponent],
+
 })
 export class AppModule {}
