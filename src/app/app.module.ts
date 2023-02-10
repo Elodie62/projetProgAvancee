@@ -1,38 +1,40 @@
 import { NgModule } from "@angular/core";
-import { HttpClientModule } from "@angular/common/http";
-import { FormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
-import { NbEvaIconsModule } from "@nebular/eva-icons";
 import {
   NbThemeModule,
   NbLayoutModule,
   NbSidebarModule,
   NbCardModule,
-  NbButtonModule,
+  NbSelectModule,
   NbInputModule,
-  NbIconModule,
+  NbDatepickerModule,
+  NbButtonModule,
 } from "@nebular/theme";
-
 import { AppRoutingModule } from "../app/app-routing.module";
+
 import { AppComponent } from "./app.component";
 import { HomeComponent } from "./home/home.component";
-//import { ProductComponent } from "./product/product.component";
+//import { AddSextoyComponent } from "./add-sextoy/add-sextoy.component";
+import { ReactiveFormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent /*ProductComponent*/],
+  declarations: [AppComponent, HomeComponent /* AddSextoyComponent*/],
   imports: [
     AppRoutingModule,
+    ReactiveFormsModule,
     BrowserModule,
-    HttpClientModule,
     NbThemeModule.forRoot(),
     NbLayoutModule,
     NbSidebarModule.forRoot(),
     NbCardModule,
-    NbButtonModule,
+    NbSelectModule,
     NbInputModule,
-    NbIconModule,
-    NbEvaIconsModule,
-    FormsModule,
+    NbDatepickerModule.forRoot(),
+    NbButtonModule,
+    HttpClientModule,
   ],
+  providers: [],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
