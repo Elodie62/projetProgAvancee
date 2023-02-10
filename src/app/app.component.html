@@ -1,6 +1,15 @@
 <nb-layout>
-  <nb-layout-header></nb-layout-header>
+  <nb-layout-header fixed>
+    <img routerLink="/home" src="../assets/img/logo.png" alt="logo" />
+  </nb-layout-header>
 
-  <nb-sidebar></nb-sidebar>
-  <nb-layout-column class="colored-column-basic"><router-outlet></router-outlet></nb-layout-column>
+  <nb-sidebar>
+    <nav>
+      <a routerLink="home" class="navItem"> Liste des sextoys </a><br />
+      <a routerLink="addSextoy" class="navItem"> Ajouter un sextoy </a>
+    </nav>
+  </nb-sidebar>
+  <nb-layout-column class="colored-column-basic"
+    ><router-outlet></router-outlet
+  ></nb-layout-column>
 </nb-layout>
