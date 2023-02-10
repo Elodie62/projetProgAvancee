@@ -1,24 +1,39 @@
 import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
 
+@Injectable({
+  providedIn: "root",
+})
 export class ProductService {
   constructor(private httpClient: HttpClient) {}
 
   public getAllProducts() {
-    return this.httpClient.get("http://localhost:3000" + `/allProduct`);
+    return this.httpClient.get("leod1.site:8877" + `/product/getAllProduct`);
   }
 
   public getOneProduct(productId: any) {
-    return this.httpClient.get("http://localhost:3000" + `/allProduct/${productId}`);
+    return this.httpClient.get(
+      "leod1.site:8877" + `/product/getProduct/${productId}`
+    );
   }
 
   public addProduct(data: any) {
-    return this.httpClient.post("http://localhost:3000" + `/addProduct`, data);
+    return this.httpClient.post(
+      "leod1.site:8877" + `/product/createProduct`,
+      data
+    );
   }
 
   public updateProduct(updatedData: any) {
-    return this.httpClient.put("http://localhost:3000" + `/updateProduct/${updatedData.id}`, updatedData);
+    return this.httpClient.put(
+      "leod1.site:8877" + `/product/updateProduct/${updatedData.id}`,
+      updatedData
+    );
   }
-  public deleteeProduct(productId: any) {
-    return this.httpClient.delete("http://localhost:3000" + `/updateProduct/${productId}`);
+
+  public deleteProduct(productId: any) {
+    return this.httpClient.delete(
+      "leod1.site:8877" + `/product/deleteProduct/${productId}`
+    );
   }
 }
