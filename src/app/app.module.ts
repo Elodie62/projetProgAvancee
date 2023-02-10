@@ -34,5 +34,6 @@ import { HomeComponent } from "./home/home.component";
     NbEvaIconsModule,
     FormsModule,
   ],
+    bootstrap: [AppComponent],
 })
 export class AppModule {}
