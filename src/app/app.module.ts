@@ -1,30 +1,39 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
-<<<<<<< Updated upstream
-import { NbThemeModule, NbLayoutModule, NbSidebarModule, NbCardModule } from "@nebular/theme";
+import {
+  NbThemeModule,
+  NbLayoutModule,
+  NbSidebarModule,
+  NbCardModule,
+  NbSelectModule,
+  NbInputModule,
+  NbDatepickerModule,
+  NbButtonModule,
+} from "@nebular/theme";
 import { AppRoutingModule } from "../app/app-routing.module";
 
 import { AppComponent } from "./app.component";
 import { HomeComponent } from "./home/home.component";
+import { AddSextoyComponent } from "./add-sextoy/add-sextoy.component";
+import { ReactiveFormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent],
+  declarations: [AppComponent, HomeComponent, AddSextoyComponent],
   imports: [
     AppRoutingModule,
+    ReactiveFormsModule,
     BrowserModule,
     NbThemeModule.forRoot(),
     NbLayoutModule,
     NbSidebarModule.forRoot(),
     NbCardModule,
+    NbSelectModule,
+    NbInputModule,
+    NbDatepickerModule.forRoot(),
+    NbButtonModule,
+    HttpClientModule,
   ],
-=======
-import { HttpClientModule } from "@angular/common/http";
-import { AppComponent } from "./app.component";
-
-@NgModule({
-  declarations: [AppComponent],
-  imports: [BrowserModule, HttpClientModule],
->>>>>>> Stashed changes
   providers: [],
   bootstrap: [AppComponent],
 })
