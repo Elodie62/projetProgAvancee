@@ -3,7 +3,7 @@
 <ng-container>
   <article>
     <nb-card *ngFor="let product of products$ | async">
-      <nb-card-body (click)="redirect(product.id)">
+      <nb-card-body [routerLink]="['/product']" [queryParams]="{ id: product.id }">
         <img src="{{ product.image }}" alt="sextoyImage" />
         <div class="infos">
           <span class="name">{{ product.name }}</span>

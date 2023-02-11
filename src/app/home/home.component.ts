@@ -1,6 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
-import { map } from "rxjs";
 import { ProductService } from "../services/products.service";
 
 @Component({
@@ -11,7 +9,7 @@ import { ProductService } from "../services/products.service";
 export class HomeComponent implements OnInit {
   public products$: any;
 
-  constructor(private productService: ProductService, private router: Router) {}
+  constructor(private productService: ProductService) {}
 
   public ngOnInit() {
     this.products$ = this.productService.getAllProducts();
@@ -19,9 +17,5 @@ export class HomeComponent implements OnInit {
 
   public getCatalogueName(catalogId: number) {
     return this.productService.getCatalogWithId(catalogId);
-  }
-
-  public redirect(productId: number) {
-    this.router.navigate(["/product"], { queryParams: { id: productId } });
   }
 }
