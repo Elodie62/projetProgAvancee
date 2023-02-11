@@ -1,6 +1,14 @@
 <nb-layout>
-  <nb-layout-header *ngIf="isMap()"></nb-layout-header>
-
-  <nb-sidebar *ngIf="isMap()"></nb-sidebar>
-  <nb-layout-column class="colored-column-basic"><router-outlet></router-outlet></nb-layout-column>
+  <nb-layout-header fixed *ngIf="isMap()>
+    <img routerLink="/home" src="../assets/img/logo.png" alt="logo" />
+  </nb-layout-header>
+  <nb-sidebar *ngIf="isMap()>
+    <nav>
+      <a routerLink="home" class="navItem"> Liste des sextoys </a><br />
+      <a routerLink="addSextoy" class="navItem"> Ajouter un sextoy </a>
+    </nav>
+  </nb-sidebar>
+  <nb-layout-column class="colored-column-basic"
+    ><router-outlet></router-outlet
+  ></nb-layout-column>
 </nb-layout>
