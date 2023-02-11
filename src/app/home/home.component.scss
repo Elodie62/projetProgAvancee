@@ -1,0 +1,47 @@
+h1 {
+  font-size: 30px;
+  font-weight: 800;
+  margin: 0;
+  color: #743da3;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+article {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+nb-card {
+  width: 250px;
+  height: 300px;
+}
+
+nb-card-body {
+  display: inline-grid;
+  padding: 0;
+  cursor: pointer;
+}
+
+img {
+  width: 170px;
+  margin: auto;
+}
+
+.infos {
+  padding: 10px;
+  display: inherit;
+}
+
+.name {
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #743da3;
+}
+.price {
+  text-align: right;
+}
+
+.catalog {
+  color: #de00ff;
+}
