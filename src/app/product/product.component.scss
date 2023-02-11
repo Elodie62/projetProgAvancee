@@ -1,0 +1,63 @@
+.container {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  margin-bottom: 40px;
+}
+img {
+  width: 350px;
+  height: auto;
+  align-self: center;
+}
+h1,
+h2 {
+  color: #743da2;
+}
+.describe {
+  margin-top: 30px;
+  font-weight: bold;
+}
+.brand {
+  margin: 0;
+}
+h5 {
+  margin: 0 0 40px 0;
+}
+.catalogue {
+  color: #e987f7;
+}
+.edit {
+  margin-right: 10px;
+  background-color: #eecff3 !important;
+  text-transform: capitalize !important;
+  color: #d216ef !important;
+}
+.delete {
+  background-color: #ff9fa0 !important;
+  text-transform: capitalize !important;
+  color: #ef2023 !important;
+}
+.btn {
+  display: flex;
+  justify-content: flex-end;
+}
+p {
+  margin-bottom: 0;
+}
+.infoProduct {
+  margin-left: 105px;
+}
+.infoProduct span {
+  text-decoration: underline;
+}
+.dimension {
+  margin-top: 16px;
+}
+.dimension p {
+  margin: 0;
+}
+.save,
+.back {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
