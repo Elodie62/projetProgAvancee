@@ -1,0 +1,59 @@
+<h1>Crée ton sextoy :</h1>
+
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <div>
+    <input type="text" nbInput placeholder="Nom" formControlName="name" />
+
+    <input
+      nbInput
+      placeholder="Date de sortie"
+      [nbDatepicker]="dateTimePicker"
+      formControlName="release_date"
+    />
+    <nb-datepicker #dateTimePicker [min]="today"></nb-datepicker>
+  </div>
+  <div>
+    <input type="number" nbInput placeholder="Prix" formControlName="price" />
+    <input type="text" nbInput placeholder="Marque" formControlName="brand" />
+  </div>
+  <input type="file" nbInput formControlName="image" />
+
+  <nb-select placeholder="Catalogue" formControlName="catalogue_id">
+    <nb-option [value]="1">Sextoy féminin</nb-option>
+    <nb-option [value]="2">Sextoy masculin</nb-option>
+    <nb-option [value]="3">Accesoire</nb-option>
+    <nb-option [value]="4">Lingerie</nb-option>
+  </nb-select>
+
+  <input
+    type="number"
+    min="1"
+    nbInput
+    placeholder="Largeur"
+    formControlName="width"
+  />
+  <input
+    type="number"
+    min="1"
+    nbInput
+    placeholder="Longeur"
+    formControlName="length"
+  />
+  <input
+    type="number"
+    min="1"
+    nbInput
+    placeholder="Epaisseur"
+    formControlName="thickness"
+  />
+
+  <textarea
+    nbInput
+    fullWidth
+    placeholder="Description"
+    formControlName="description"
+    rows="6"
+  ></textarea>
+
+  <button nbButton type="submit" [disabled]="!form.valid">Valider</button>
+</form>
