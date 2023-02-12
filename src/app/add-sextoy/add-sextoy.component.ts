@@ -34,8 +34,8 @@ export class AddSextoyComponent implements OnInit {
   public submit(): void {
     this.form.value.image = window.btoa(this.form.value.img);
     const date = this.form.value.release_date;
-    let new_date =
-      date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate();
+    const day = ("0" + (date.getMonth() + 1)).slice(-2);
+    let new_date = date.getFullYear() + "-" + day + "-" + date.getDate();
     this.form.value.release_date = new_date.toString();
     this.productService.addProduct(this.form.value);
     this.router.navigate(["/", "home"]);
