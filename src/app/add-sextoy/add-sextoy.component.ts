@@ -5,13 +5,15 @@ import { ProductService } from "../services/products.service";
 
 @Component({
   selector: "app-add-sextoy",
-  templateUrl: "./add-sextoy.component.html",
-  styleUrls: ["./add-sextoy.component.scss"],
+  templateUrl: "add-sextoy.component.html",
+  styleUrls: ["add-sextoy.component.scss"],
 })
 export class AddSextoyComponent implements OnInit {
   public form: FormGroup = new FormGroup({});
   public today: Date = new Date();
 
+  private base64Img: string | ArrayBuffer | null | undefined;
+  
   constructor(private productService: ProductService, private router: Router) {}
 
   public async ngOnInit(): Promise<void> {
@@ -31,12 +33,21 @@ export class AddSextoyComponent implements OnInit {
     });
   }
 
+  handleUpload(event: any): void {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      this.base64Img = reader.result;
+    };
+  }
+
   public submit(): void {
-    this.form.value.image = window.btoa(this.form.value.img);
+    this.form.value.image = this.base64Img;
     const date = this.form.value.release_date;
-    const day = ("0" + (date.getMonth() + 1)).slice(-2);
-    let new_date = date.getFullYear() + "-" + day + "-" + date.getDate();
-    this.form.value.release_date = new_date.toString();
+    let new_date =
+      date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate();
+    this.form.value.release_date = "2021-05-05";
     this.productService.addProduct(this.form.value);
     this.router.navigate(["/", "home"]);
   }
