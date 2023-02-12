@@ -2,7 +2,7 @@
   <h2>{{ product.name }}</h2>
   <div class="container">
     <img *ngIf="!editMode" [src]="product.image" alt=" " />
-    <input *ngIf="editMode" ngModel (ngModelChange)="onInputChange($event)" type="file" accept="image/*" nbInput />
+    <input *ngIf="editMode" ngModel (change)="onInputChange($event)" type="file" accept="image/*" nbInput />
 
     <div class="infoProduct">
       <h2 *ngIf="!editMode">{{ product.price }} €</h2>

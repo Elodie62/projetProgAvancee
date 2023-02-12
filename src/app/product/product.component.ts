@@ -10,7 +10,7 @@ import { ProductService } from "../services/products.service";
 })
 export class ProductComponent {
   public catalogueName: string = "";
-  private possiblePrice: string[] = [];
+  private possiblePrice: number | undefined;
   private possibleImg: string = "";
   @Input() editMode: boolean = false;
 
@@ -23,6 +23,7 @@ export class ProductComponent {
     this.productService.currentProducts$.pipe(skip(1)).subscribe((product) => {
       this.productService.getCatalogWithId(product.catalogue_id).subscribe((catalog) => {
         this.catalogueName = catalog.name;
+        this.possiblePrice = product.price;
       });
     });
   }
@@ -31,18 +32,16 @@ export class ProductComponent {
     this.possiblePrice = product;
   }
   public onInputChange(event: any): void {
-    this.possibleImg = `data:image/png;base64,${btoa(event)}`;
-    // const inputEvent = event.target as HTMLInputElement;
-    // if (inputEvent.files) {
-    //   const file = inputEvent.files[0];
-    //   const reader = new FileReader();
-    //   reader.readAsDataURL(file);
-    //   reader.onload = () => {
-    //     console.log(reader.result);
-    //     this.possibleImg = reader.result as string;
-    //     console.log("this.possibleImg", this.possibleImg);
-    //   };
-    // }
+    //this.possibleImg = `data:image/png;base64,${btoa(event)}`;
+    const inputEvent = event.target as HTMLInputElement;
+    if (inputEvent.files) {
+      const file = inputEvent.files[0];
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        this.possibleImg = reader.result as string;
+       };
+     }
   }
 
   public async save(product: any): Promise<void> {
