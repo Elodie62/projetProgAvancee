@@ -13,7 +13,7 @@ export class AddSextoyComponent implements OnInit {
   public today: Date = new Date();
 
   private base64Img: string | ArrayBuffer | null | undefined;
-  
+
   constructor(private productService: ProductService, private router: Router) {}
 
   public async ngOnInit(): Promise<void> {
@@ -45,9 +45,8 @@ export class AddSextoyComponent implements OnInit {
   public submit(): void {
     this.form.value.image = this.base64Img;
     const date = this.form.value.release_date;
-    let new_date =
-      date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate();
-    this.form.value.release_date = "2021-05-05";
+    const day = ("0" + (date.getMonth() + 1)).slice(-2);
+    let new_date = date.getFullYear() + "-" + day + "-" + date.getDate();
     this.productService.addProduct(this.form.value);
     this.router.navigate(["/", "home"]);
   }
