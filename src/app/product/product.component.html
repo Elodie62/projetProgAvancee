@@ -1,0 +1,43 @@
+<article *ngIf="productService.currentProducts$ | async as product">
+  <h2>{{ product.name }}</h2>
+  <div class="container">
+    <img *ngIf="!editMode" [src]="product.image" alt=" " />
+    <input *ngIf="editMode" ngModel (ngModelChange)="onInputChange($event)" type="file" accept="image/*" nbInput />
+
+    <div class="infoProduct">
+      <h2 *ngIf="!editMode">{{ product.price }} €</h2>
+      <input
+        *ngIf="editMode"
+        [ngModel]="product.price"
+        (ngModelChange)="onPriceChange($event)"
+        type="number"
+        nbInput
+      />
+      <button *ngIf="editMode" class="save" type="button" (click)="save(product)">
+        <nb-icon icon="checkmark-outline"></nb-icon>
+      </button>
+      <button *ngIf="editMode" class="back" type="button" (click)="goBack()">
+        <nb-icon icon="close-outline"></nb-icon>
+      </button>
+      <h5 class="brand">{{ product.brand }}</h5>
+
+      <h5 class="catalogue">{{ catalogueName }}</h5>
+      <span> Dimensions:</span>
+      <div class="dimension">
+        <p>Largeur: {{ product.width }} cm</p>
+        <p>Longueur: {{ product.length }} cm</p>
+        <p>Epaisseur: {{ product.thickness }} cm</p>
+      </div>
+    </div>
+  </div>
+  <span class="describe">Description:</span>
+  <p>
+    {{ product.description }}
+  </p>
+
+  <div class="btn">
+    <button (click)="setEditMode()" type="button" class="edit" nbButton status="basic">Editer</button>
+
+    <button (click)="delete(product.id)" type="submit" class="delete" nbButton status="basic">Supprimer</button>
+  </div>
+</article>

@@ -1,6 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
-import { map } from "rxjs";
 import { ProductService } from "../services/products.service";
 
 @Component({
@@ -17,13 +15,9 @@ export class HomeComponent implements OnInit {
     4: "Lingeries",
   };
 
-  constructor(private productService: ProductService, private router: Router) {}
+  constructor(private productService: ProductService) {}
 
   public ngOnInit() {
     this.products$ = this.productService.getAllProducts();
-  }
-
-  public redirect(productId: number) {
-    this.router.navigate(["/product"], { queryParams: { id: productId } });
   }
 }
