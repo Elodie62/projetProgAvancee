@@ -16,13 +16,14 @@
     <input type="number" nbInput placeholder="Prix" formControlName="price" />
     <input type="text" nbInput placeholder="Marque" formControlName="brand" />
   </div>
+  
   <input type="file" nbInput formControlName="image" (change)="handleUpload($event)" />
 
   <nb-select placeholder="Catalogue" formControlName="catalogue_id">
-    <nb-option [value]="1">Sextoy féminin</nb-option>
-    <nb-option [value]="2">Sextoy masculin</nb-option>
-    <nb-option [value]="3">Accesoire</nb-option>
-    <nb-option [value]="4">Lingerie</nb-option>
+    <nb-option [value]="1">Sextoys féminin</nb-option>
+    <nb-option [value]="2">Sextoys masculin</nb-option>
+    <nb-option [value]="3">Accesoires</nb-option>
+    <nb-option [value]="4">Lingeries</nb-option>
   </nb-select>
 
   <input

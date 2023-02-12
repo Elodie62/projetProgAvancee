@@ -20,10 +20,9 @@ export class ProductService {
   }
 
   public addProduct(data: any) {
-    return this.httpclient.post(
-      "http://leod1.site:8877" + `/product/createProduct`,
-      data
-    ).subscribe();
+    return this.httpclient
+      .post("http://leod1.site:8877" + `/product/createProduct`, data)
+      .subscribe();
   }
 
   public updateProduct(updatedData: any) {

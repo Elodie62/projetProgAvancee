@@ -23,6 +23,7 @@ import { ErrorComponent } from './error/error.component';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, ErrorComponent, AddSextoyComponent],
+
   imports: [
     AppRoutingModule,
     ReactiveFormsModule,
@@ -40,6 +41,5 @@ import { ErrorComponent } from './error/error.component';
 
   providers: [],
   bootstrap: [AppComponent],
-
 })
 export class AppModule {}

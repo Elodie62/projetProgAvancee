@@ -13,7 +13,7 @@ export class AddSextoyComponent implements OnInit {
   public today: Date = new Date();
 
   private base64Img: string | ArrayBuffer | null | undefined;
-
+  
   constructor(private productService: ProductService, private router: Router) {}
 
   public async ngOnInit(): Promise<void> {
