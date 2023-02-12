@@ -14,6 +14,7 @@ export class AppComponent {
   title = 'sextoyApp';
 
   isMap() {
-    return this.router.url == "/home" || this.router.url == "/product" || this.router.url == "/addSextoy";
+    const routerUrlParse = this.router.url.split("?")[0];
+    return routerUrlParse == "/home" || routerUrlParse == "/product" || routerUrlParse == "/addSextoy";
   }
 }
