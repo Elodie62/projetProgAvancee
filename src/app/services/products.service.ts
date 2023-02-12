@@ -23,7 +23,7 @@ export class ProductService {
     return this.httpclient.post(
       "http://leod1.site:8877" + `/product/createProduct`,
       data
-    );
+    ).subscribe();
   }
 
   public updateProduct(updatedData: any) {

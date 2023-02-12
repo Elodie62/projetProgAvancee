@@ -16,7 +16,7 @@
     <input type="number" nbInput placeholder="Prix" formControlName="price" />
     <input type="text" nbInput placeholder="Marque" formControlName="brand" />
   </div>
-  <input type="file" nbInput formControlName="image" />
+  <input type="file" nbInput formControlName="image" (change)="handleUpload($event)" />
 
   <nb-select placeholder="Catalogue" formControlName="catalogue_id">
     <nb-option [value]="1">Sextoy féminin</nb-option>
