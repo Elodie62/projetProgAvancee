@@ -1,17 +1,15 @@
 <h1>Tous les sextoys</h1>
 
-<ng-container>
-  <article>
-    <nb-card *ngFor="let product of products$ | async">
-      <nb-card-body [routerLink]="['/product']" [queryParams]="{ id: product.id }">
-        <img src="{{ product.image }}" alt="sextoyImage" />
-        <div class="infos">
-          <span class="name">{{ product.name }}</span>
-          <span class="catalog">{{ product.catalogue_id }}</span>
-          <span>{{ product.brand }}</span>
-          <span class="price">{{ product.price }}€</span>
-        </div>
-      </nb-card-body>
-    </nb-card>
-  </article>
-</ng-container>
+<article>
+  <nb-card *ngFor="let product of products$ | async">
+    <nb-card-body [routerLink]="['/product']" [queryParams]="{ id: product.id }">
+      <img src="{{ product.image }}" alt="sextoyImage" />
+      <div class="infos">
+        <span class="name">{{ product.name }}</span>
+        <span class="catalog">{{ catalogList[product.catalogue_id] }}</span>
+        <span>{{ product.brand }}</span>
+        <span class="price">{{ product.price }}€</span>
+      </div>
+    </nb-card-body>
+  </nb-card>
+</article>
